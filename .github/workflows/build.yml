@@ -15,12 +15,15 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
-      - name: Install CocoaPods
+      - name: Build Xcode project
         run: |
-          gem install cocoapods
-      - name: Build archive
-        run: |
-          xcodebuild -scheme SimpleHello -workspace SimpleHello.xcodeproj/project.xcworkspace -sdk iphoneos -configuration Release archive -archivePath $PWD/build/SimpleHello.xcarchive
+          xcodebuild -scheme SimpleHello \
+                     -project SimpleHello.xcodeproj \
+                     -sdk iphoneos \
+                     -configuration Release \
+                     clean archive \
+                     -archivePath $PWD/build/SimpleHello.xcarchive \
+                     CODE_SIGN_STYLE=Automatic
       - name: Export IPA
         run: |
           xcodebuild -exportArchive -archivePath $PWD/build/SimpleHello.xcarchive -exportOptionsPlist SimpleHello/ExportOptions.plist -exportPath $PWD/build/ipa
