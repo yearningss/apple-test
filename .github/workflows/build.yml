@@ -24,8 +24,8 @@ jobs:
       - name: Export IPA
         run: |
           xcodebuild -exportArchive -archivePath $PWD/build/SimpleHello.xcarchive -exportOptionsPlist SimpleHello/ExportOptions.plist -exportPath $PWD/build/ipa
-      - name: Upload IPA
-        uses: actions/upload-artifact@v3
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: SimpleHello.ipa
+          name: iOS-IPA
           path: build/ipa/*.ipa
