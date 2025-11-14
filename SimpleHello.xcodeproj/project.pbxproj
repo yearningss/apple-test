@@ -4,134 +4,78 @@
 	classes = {};
 	objectVersion = 56;
 	objects = {
-
-/* Begin PBXBuildFile section */
-	11AABBCC001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AABBCC002 /* ContentView.swift */; };
-	11AABBCC003 /* SimpleHelloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AABBCC004 /* SimpleHelloApp.swift */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXFileReference section */
-	11AABBCC002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-	11AABBCC004 /* SimpleHelloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleHelloApp.swift; sourceTree = "<group>"; };
-	11AABBCC050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-	11AABBCC500 /* SimpleHello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleHello.app; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
-
-/* Begin PBXGroup section */
-	11AABBCC100 /* Root */ = {
+	// Импортированные исходники
+	1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+	2 /* SimpleHelloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleHelloApp.swift; sourceTree = "<group>"; };
+	3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+	4 /* SimpleHello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleHello.app; sourceTree = BUILT_PRODUCTS_DIR; };
+	// 1 группа — все исходники
+	10 = {
 		isa = PBXGroup;
-		children = (
-			11AABBCC002 /* ContentView.swift */,
-			11AABBCC004 /* SimpleHelloApp.swift */,
-			11AABBCC050 /* Info.plist */,
-		);
+		children = (1,2,3);
 		path = "";
 		sourceTree = "<group>";
 	};
-/* End PBXGroup section */
-
-/* Begin PBXProject section */
-	11AABBCC200 /* Project object */ = {
-		isa = PBXProject;
-		attributes = {
-			LastUpgradeCheck = 1400;
-			ORGANIZATIONNAME = "SimpleHello";
-		};
-		buildConfigurationList = 11AABBCC201 /* Build configuration list for PBXProject */;
-		compatibilityVersion = "Xcode 13.0";
-		developmentRegion = en;
-		hasScannedForEncodings = 0;
-		mainGroup = 11AABBCC100 /* Root */;
-		projectDirPath = "";
-		projectRoot = "";
-		targets = (
-			11AABBCC300 /* SimpleHello */,
-		);
+	20 = {
+		isa = PBXGroup;
+		children = (10,4);
+		path = "";
+		sourceTree = "<group>";
 	};
-/* End PBXProject section */
-
-/* Begin PBXNativeTarget section */
-	11AABBCC300 /* SimpleHello */ = {
+	// Target build sources phase
+	30 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (1001,1002); runOnlyForDeploymentPostprocessing = 0; };
+	// Build files for phase
+	1001 = {isa = PBXBuildFile; fileRef = 1; };
+	1002 = {isa = PBXBuildFile; fileRef = 2; };
+	// Target
+	200 = {
 		isa = PBXNativeTarget;
-		buildConfigurationList = 11AABBCC301 /* Build configuration list for PBXNativeTarget "SimpleHello" */;
-		buildPhases = (
-			11AABBCC400 /* Sources */,
-		);
+		buildConfigurationList = 10001;
+		buildPhases = (30);
 		buildRules = ();
 		dependencies = ();
 		name = SimpleHello;
 		productName = SimpleHello;
-		productReference = 11AABBCC500 /* SimpleHello.app */;
+		productReference = 4;
 		productType = "com.apple.product-type.application";
 	};
-/* End PBXNativeTarget section */
-
-/* Begin PBXSourcesBuildPhase section */
-	11AABBCC400 /* Sources */ = {
-		isa = PBXSourcesBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-			11AABBCC001 /* ContentView.swift in Sources */,
-			11AABBCC003 /* SimpleHelloApp.swift in Sources */,
-		);
-		runOnlyForDeploymentPostprocessing = 0;
+	// Project секция
+	500 = {
+		isa = PBXProject;
+		attributes = {LastUpgradeCheck = 1400; ORGANIZATIONNAME = "SimpleHello";};
+		buildConfigurationList = 10000;
+		compatibilityVersion = "Xcode 13.0";
+		developmentRegion = en;
+		mainGroup = 20;
+		projectDirPath = "";
+		projectRoot = "";
+		targets = (200);
 	};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin XCBuildConfiguration section */
-	11AABBCC600 /* Debug */ = {
-		isa = XCBuildConfiguration;
-		buildSettings = {
-			PRODUCT_BUNDLE_IDENTIFIER = "com.example.SimpleHello";
-			INFOPLIST_FILE = Info.plist;
-			SDKROOT = iphoneos;
-			SWIFT_VERSION = 5.0;
-			SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-			TARGETED_DEVICE_FAMILY = "1,2";
-			IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-			CODE_SIGN_STYLE = Automatic;
-			DEVELOPMENT_TEAM = ABC1234567;
-		};
-		name = Debug;
+	// Build конфиги Debug/Release для проекта и target-а
+	10000 = {isa = XCConfigurationList; buildConfigurations = (10100,10101); defaultConfigurationName = Release; };
+	10001 = {isa = XCConfigurationList; buildConfigurations = (10100,10101); defaultConfigurationName = Release; };
+	10100 = {isa = XCBuildConfiguration; buildSettings = {
+PRODUCT_BUNDLE_IDENTIFIER = "com.example.SimpleHello";
+INFOPLIST_FILE = Info.plist;
+SDKROOT = iphoneos;
+SWIFT_VERSION = 5.0;
+SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+TARGETED_DEVICE_FAMILY = "1,2";
+IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+CODE_SIGN_STYLE = Automatic;
+DEVELOPMENT_TEAM = ABC1234567;
+}; name = Debug; };
+	10101 = {isa = XCBuildConfiguration; buildSettings = {
+PRODUCT_BUNDLE_IDENTIFIER = "com.example.SimpleHello";
+INFOPLIST_FILE = Info.plist;
+SDKROOT = iphoneos;
+SWIFT_VERSION = 5.0;
+SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+TARGETED_DEVICE_FAMILY = "1,2";
+IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+CODE_SIGN_STYLE = Automatic;
+DEVELOPMENT_TEAM = ABC1234567;
+}; name = Release; };
 	};
-	11AABBCC601 /* Release */ = {
-		isa = XCBuildConfiguration;
-		buildSettings = {
-			PRODUCT_BUNDLE_IDENTIFIER = "com.example.SimpleHello";
-			INFOPLIST_FILE = Info.plist;
-			SDKROOT = iphoneos;
-			SWIFT_VERSION = 5.0;
-			SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-			TARGETED_DEVICE_FAMILY = "1,2";
-			IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-			CODE_SIGN_STYLE = Automatic;
-			DEVELOPMENT_TEAM = ABC1234567;
-		};
-		name = Release;
-	};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-	11AABBCC201 /* Build configuration list for PBXProject */ = {
-		isa = XCConfigurationList;
-		buildConfigurations = (
-			11AABBCC600 /* Debug */,
-			11AABBCC601 /* Release */,
-		);
-		defaultConfigurationIsVisible = 0;
-		defaultConfigurationName = Release;
-	};
-	11AABBCC301 /* Build configuration list for PBXNativeTarget "SimpleHello" */ = {
-		isa = XCConfigurationList;
-		buildConfigurations = (
-			11AABBCC600 /* Debug */,
-			11AABBCC601 /* Release */,
-		);
-		defaultConfigurationIsVisible = 0;
-		defaultConfigurationName = Release;
-	};
-/* End XCConfigurationList section */
-
-	};
-	rootObject = 11AABBCC200 /* Project object */;
+	rootObject = 500;
 }

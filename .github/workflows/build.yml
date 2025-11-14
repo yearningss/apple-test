@@ -23,6 +23,7 @@ jobs:
                      -configuration Release \
                      clean archive \
                      -archivePath $PWD/build/SimpleHello.xcarchive \
+                     -allowProvisioningUpdates \
                      CODE_SIGN_STYLE=Automatic
       - name: Export IPA
         run: |
