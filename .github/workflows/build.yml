@@ -5,24 +5,23 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest   # важный момент — сборка iOS только на macOS
+    runs-on: macos-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Decode certificate & provisioning profile
+      - name: Copy certificates
         run: |
-          echo "$P12_BASE64" | base64 --decode > cert.p12
-          echo "$PROVISION_BASE64" | base64 --decode > profile.mobileprovision
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          cp Certificates/cert.p12 .
+          cp Certificates/u.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
 
       - name: Install certificate
         run: |
           security create-keychain -p "" ios.keychain
-          security import cert.p12 -k ios.keychain -P '@theappbox' -T /usr/bin/codesign
+          security import cert.p12 -k ios.keychain -P 'newpassword' -T /usr/bin/codesign
           security list-keychains -s ios.keychain
-          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          cp profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
 
       - name: Install dependencies
         run: |
