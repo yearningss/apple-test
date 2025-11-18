@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-latest   # важный момент — сборка iOS только на macOS
 
     steps:
       - name: Checkout repository
